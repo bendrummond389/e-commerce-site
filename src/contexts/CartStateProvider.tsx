@@ -2,15 +2,18 @@
 import React, { createContext, useState, useContext } from 'react'
 
 export type ProductInCart = {
-    title: String
-    description: String
-    price: Number
+    title: string
+    description: string
+    price: number
+    image: string
+    quantity: number
 }
 
 type CartStateContextType = {
     isCartOpen: boolean
     setIsCartOpen: (isOpen: boolean) => void
     products: ProductInCart[]
+    setProducts: (products: ProductInCart[]) => void
 }
 
 type CartStateProviderProps = {
@@ -34,16 +37,46 @@ export const CartStateProvider: React.FC<CartStateProviderProps> = ({
 }) => {
     const [isCartOpen, setIsCartOpen] = useState(false)
     const [products, setProducts] = useState<ProductInCart[]>([
-      { title: "Apple iPhone 13", description: "64GB, Midnight", price: 699.00 },
-      { title: "Samsung Galaxy S21", description: "128GB, Phantom Gray", price: 799.99 },
-      { title: "Amazon Echo Dot (4th Gen)", description: "Smart Speaker with Alexa", price: 49.99 },
-      { title: "Sony WH-1000XM4", description: "Wireless Noise-Cancelling Headphones", price: 278.00 },
-      { title: "Apple MacBook Air (M1, 2020)", description: "13-inch, 8GB RAM, 256GB SSD", price: 999.00 }
+        {
+            title: 'Nike Air Max 97',
+            description: "Men's Shoe",
+            price: 170.0,
+            image: 'https://image_url_here.com/nike_air_max_97',
+            quantity: 1,
+        },
+        {
+            title: 'Adidas Ultraboost 21',
+            description: 'Running Shoe',
+            price: 180.0,
+            image: 'https://image_url_here.com/adidas_ultraboost_21',
+            quantity: 1,
+        },
+        {
+            title: 'Under Armour HOVR Phantom 2',
+            description: "Men's Running Shoe",
+            price: 150.0,
+            image: 'https://image_url_here.com/under_armour_hovr_phantom',
+            quantity: 1,
+        },
+        {
+            title: 'New Balance 990v5',
+            description: 'Made in US',
+            price: 175.0,
+            image: 'https://image_url_here.com/new_balance_990v5',
+            quantity: 1,
+        },
+        {
+            title: 'Puma RS-X³ Puzzle',
+            description: "Men's Sneakers",
+            price: 110.0,
+            image: 'https://image_url_here.com/puma_rs_x3_puzzle',
+            quantity: 1,
+        },
     ])
 
     return (
         <CartStateContext.Provider
-            value={{ isCartOpen, setIsCartOpen, products }}
+            value={{ isCartOpen, setIsCartOpen, products, setProducts }}
         >
             {children}
         </CartStateContext.Provider>

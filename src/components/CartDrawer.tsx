@@ -1,12 +1,19 @@
 'use client'
 
-import { useCartState } from '@/contexts/CartStateProvider'
+import { ProductInCart, useCartState } from '@/contexts/CartStateProvider'
 import React from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import CartItem from './CartItem'
 
 const CartDrawer = () => {
-    const { isCartOpen, setIsCartOpen, products } = useCartState()
+    const { isCartOpen, setIsCartOpen, products, setProducts } = useCartState()
+
+    const handleRemove = (productToRemove: ProductInCart) => {
+        const newProducts = products.filter(
+            (product) => product !== productToRemove
+        )
+        setProducts(newProducts)
+    }
 
     return (
         <div
@@ -31,8 +38,9 @@ const CartDrawer = () => {
                     </div>
                     {products.map((product) => (
                         <CartItem
+                            key={product.title}
                             product={product}
-                            onRemove={(product) => console.log(product.title)}
+                            onRemove={handleRemove}
                         />
                     ))}
                 </div>
