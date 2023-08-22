@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'text': '#0a0821',
-        'background': '#f7f7fd',
-        'primary': '#1f1967',
-        'secondary': '#beb9ee',
-        'accent': '#362bb1',
+        'text': '#ffffff',
+        'background': '#000000',
+        'primary': '#9b9bff',
+        'secondary': '#e9e2be',
+        'accent': '#75717f',
       },
       fontFamily: {
         sans: ['var(--font-playfair)']
