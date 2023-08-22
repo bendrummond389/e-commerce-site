@@ -1,7 +1,3 @@
-import Navbar from '@/components/Navbar'
-import { Playfair_Display, Roboto_Mono } from 'next/font/google'
-import CartDrawer from '@/components/CartDrawer'
-
 export default function Home() {
     return (
         <main>

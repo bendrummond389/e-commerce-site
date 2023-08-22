@@ -1,7 +1,6 @@
 import Navbar from '@/components/Navbar'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Playfair_Display, Roboto_Mono } from 'next/font/google'
 import RootProvider from '@/contexts/RootProvider'
 import CartDrawer from '@/components/CartDrawer'
 import { playfair, roboto } from '@/styles/font'
