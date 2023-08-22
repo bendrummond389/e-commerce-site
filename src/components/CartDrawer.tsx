@@ -15,6 +15,15 @@ const CartDrawer = () => {
         setProducts(newProducts)
     }
 
+    const updateQuantity = (productToUpdate: ProductInCart, newQuantity: number) => {
+        setProducts(products.map(product => {
+            if (product.title === productToUpdate.title) {
+                return { ...product, quantity: newQuantity }
+            }
+            return product
+        }))
+    }
+
     return (
         <div
             className={`fixed overflow-hidden z-10 inset-0 transform ease-in-out transition-all duration-400 ${
@@ -41,6 +50,7 @@ const CartDrawer = () => {
                             key={product.title}
                             product={product}
                             onRemove={handleRemove}
+                            onQuantityChange={updateQuantity}
                         />
                     ))}
                 </div>
