@@ -1,34 +1,34 @@
 'use client'
 
-import { ProductInCart, useCartState } from '@/contexts/CartStateProvider'
+import { CartItem, useCartState } from '@/contexts/CartStateProvider'
 import React from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
-import CartItem from './CartItem'
+import CartItemDisplayCard from './CartItemDisplayCard'
 
 const CartDrawer = () => {
-    const { isCartOpen, setIsCartOpen, products, setProducts } = useCartState()
+    const { isCartOpen, setIsCartOpen, cartItems, setCartItems } = useCartState()
 
-    const handleRemove = (productToRemove: ProductInCart) => {
-        const newProducts = products.filter(
-            (product) => product !== productToRemove
+    const handleRemove = (cartItemToRemove: CartItem) => {
+        const newCartItems = cartItems.filter(
+            (item) => item !== cartItemToRemove
         )
-        setProducts(newProducts)
+        setCartItems(newCartItems)
     }
 
     const updateQuantity = (
-        productToUpdate: ProductInCart,
+        itemToUpdate: CartItem,
         newQuantity: number
     ) => {
-        setProducts(
-            products.map((product) => {
-                if (product.title === productToUpdate.title) {
+        setCartItems(
+            cartItems.map((item) => {
+                if (item.title === itemToUpdate.title) {
                     if (newQuantity == 0) {
-                        return { ...product, quantity: 1 }
+                        return { ...item, quantity: 1 }
                     } else {
-                        return { ...product, quantity: newQuantity }
+                        return { ...item, quantity: newQuantity }
                     }
                 }
-                return product
+                return item
             })
         )
     }
@@ -54,10 +54,10 @@ const CartDrawer = () => {
                             <AiOutlineClose style={{ fontSize: '30px' }} />
                         </button>
                     </div>
-                    {products.map((product) => (
-                        <CartItem
-                            key={product.title}
-                            product={product}
+                    {cartItems.map((item) => (
+                        <CartItemDisplayCard
+                            key={item.title}
+                            item={item}
                             onRemove={handleRemove}
                             onQuantityChange={updateQuantity}
                         />

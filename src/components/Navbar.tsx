@@ -8,7 +8,7 @@ const Navbar = () => {
     const [isAboutOpen, setIsAboutOpen] = React.useState<boolean>(false)
     const [scrollPosition, setScrollPosition] = React.useState<number>(0)
 
-    const { isCartOpen, setIsCartOpen, products } = useCartState()
+    const { isCartOpen, setIsCartOpen, cartItems} = useCartState()
 
     React.useEffect(() => {
         const handleScroll = () => {
