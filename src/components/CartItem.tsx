@@ -7,7 +7,11 @@ type CartItemProps = {
     onQuantityChange: (product: ProductInCart, quantity: number) => void
 }
 
-const CartItem: React.FC<CartItemProps> = ({ product, onRemove, onQuantityChange }) => {
+const CartItem: React.FC<CartItemProps> = ({
+    product,
+    onRemove,
+    onQuantityChange,
+}) => {
     return (
         <div className="p-5 flex flex-row justify-between bg-slate-100 rounded-md m-5">
             <div className="m-1">
@@ -16,13 +20,13 @@ const CartItem: React.FC<CartItemProps> = ({ product, onRemove, onQuantityChange
             </div>
 
             <div className="flex justify-center items-center">
-                <input 
+                <input
                     type="number"
                     value={product.quantity}
                     onChange={(e) => {
                         onQuantityChange(product, Number(e.target.value))
                     }}
-                    className="w-12 h-6 mr-2 text-center outline outline-slate-200 rounded" 
+                    className="w-12 h-6 mr-2 text-center outline outline-slate-200 rounded"
                     min="1"
                 />
                 <button

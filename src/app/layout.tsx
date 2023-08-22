@@ -3,11 +3,9 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Playfair_Display, Roboto_Mono } from 'next/font/google'
 import RootProvider from '@/contexts/RootProvider'
+import CartDrawer from '@/components/CartDrawer'
+import { playfair, roboto } from '@/styles/font'
 
-const playfair = Playfair_Display({
-    subsets: ['latin'],
-    variable: '--font-playfair',
-})
 
 export const metadata: Metadata = {
     title: 'E-Commerce Site',
@@ -21,11 +19,13 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body>
+            <body className={`${playfair.variable} font-sans`}>
                 <RootProvider>
-                    <div className={`${playfair.variable} font-sans`}>
-                        {children}
+                    <div className={roboto.className}>
+                        <Navbar />
+                        <CartDrawer />
                     </div>
+                    {children}
                 </RootProvider>
             </body>
         </html>

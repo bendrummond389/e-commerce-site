@@ -15,13 +15,22 @@ const CartDrawer = () => {
         setProducts(newProducts)
     }
 
-    const updateQuantity = (productToUpdate: ProductInCart, newQuantity: number) => {
-        setProducts(products.map(product => {
-            if (product.title === productToUpdate.title) {
-                return { ...product, quantity: newQuantity }
-            }
-            return product
-        }))
+    const updateQuantity = (
+        productToUpdate: ProductInCart,
+        newQuantity: number
+    ) => {
+        setProducts(
+            products.map((product) => {
+                if (product.title === productToUpdate.title) {
+                    if (newQuantity == 0) {
+                        return { ...product, quantity: 1 }
+                    } else {
+                        return { ...product, quantity: newQuantity }
+                    }
+                }
+                return product
+            })
+        )
     }
 
     return (
