@@ -16,7 +16,7 @@ export default function Home() {
         <main>
             <div
                 className="bg-cover bg-center h-screen"
-                style={{ backgroundImage: `url('/shoe.jpg')` }}
+                style={{ backgroundImage: `url('/hero-background-5.jpg')` }}
             >
                 <div className="absolute bottom-0 left-0 w-full bg-white bg-opacity-60 flex flex-row">
                     <MainPageProductBanner />
