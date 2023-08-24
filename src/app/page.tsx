@@ -21,7 +21,7 @@ export default function Home() {
                 <div className="absolute space-y-3 bottom-4 left-4 p-5 mb-10 bg-black bg-opacity-30 rounded-lg text-white">
                     <h2 className="text-5xl">Tagline here</h2>
                     <h3 className="text-2xl">
-                        Come buy our stuff because were hip
+                        Come buy our stuff
                     </h3>
                     <button className="rounded font-bold px-2 py-1 bg-accent">
                         Shop Now

@@ -42,7 +42,7 @@ export const CartStateProvider: React.FC<CartStateProviderProps> = ({
 
     const items = sampleItemsInCart;
     const [isCartOpen, setIsCartOpen] = useState(false)
-    const [itemsInCart, setItemsInCart] = useState<CartItem[]>(items)
+    const [itemsInCart, setItemsInCart] = useState<CartItem[]>([])
 
     return (
         <CartStateContext.Provider
