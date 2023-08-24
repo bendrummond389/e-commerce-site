@@ -2,9 +2,8 @@ import Navbar from '@/components/Navbar'
 import './globals.css'
 import type { Metadata } from 'next'
 import RootProvider from '@/contexts/RootProvider'
-import CartDrawer from '@/components/CartDrawer'
+import CartDrawer from '@/components/CartDrawer/CartDrawer'
 import { playfair, roboto } from '@/styles/font'
-
 
 export const metadata: Metadata = {
     title: 'E-Commerce Site',

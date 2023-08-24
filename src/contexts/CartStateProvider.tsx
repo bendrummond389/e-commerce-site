@@ -16,8 +16,8 @@ export type CartItem = Product & {
 type CartStateContextType = {
     isCartOpen: boolean
     setIsCartOpen: (isOpen: boolean) => void
-    cartItems: CartItem[]
-    setCartItems: (products: CartItem[]) => void
+    itemsInCart: CartItem[]
+    setItemsInCart: (products: CartItem[]) => void
 }
 
 type CartStateProviderProps = {
@@ -42,11 +42,11 @@ export const CartStateProvider: React.FC<CartStateProviderProps> = ({
 
     const items = sampleItemsInCart;
     const [isCartOpen, setIsCartOpen] = useState(false)
-    const [cartItems, setCartItems] = useState<CartItem[]>(items)
+    const [itemsInCart, setItemsInCart] = useState<CartItem[]>(items)
 
     return (
         <CartStateContext.Provider
-            value={{ isCartOpen, setIsCartOpen, cartItems, setCartItems }}
+            value={{ isCartOpen, setIsCartOpen, itemsInCart, setItemsInCart }}
         >
             {children}
         </CartStateContext.Provider>

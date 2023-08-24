@@ -8,7 +8,7 @@ const Navbar = () => {
     const [isAboutOpen, setIsAboutOpen] = React.useState<boolean>(false)
     const [scrollPosition, setScrollPosition] = React.useState<number>(0)
 
-    const { isCartOpen, setIsCartOpen, cartItems} = useCartState()
+    const { isCartOpen, setIsCartOpen } = useCartState()
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -23,7 +23,9 @@ const Navbar = () => {
     return (
         <div
             className={`fixed top-0 left-0 w-full z-10 overflow-x-hidden transition-all duration-500 ${
-                scrollPosition > 100 ? 'bg-slate-100 opacity-95' : ''
+                scrollPosition > 100
+                    ? 'bg-slate-100 opacity-95 shadow-inner'
+                    : ''
             }`}
         >
             <nav className="flex justify-between items-center my-5 mx-3 lg:mx-10 text-primary">

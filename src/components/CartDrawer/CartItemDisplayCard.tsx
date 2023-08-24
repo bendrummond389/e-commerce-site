@@ -26,7 +26,7 @@ const CartItemDisplayCard: React.FC<CartItemDisplayCardProps> = ({
                     onChange={(e) => {
                         onQuantityChange(item, Number(e.target.value))
                     }}
-                    className="w-12 h-6 mr-2 text-center outline outline-slate-200 rounded"
+                    className="w-10 h-6 mr-2 text-center outline outline-slate-200 rounded"
                     min="1"
                 />
                 <button

@@ -6,21 +6,19 @@ import { AiOutlineClose } from 'react-icons/ai'
 import CartItemDisplayCard from './CartItemDisplayCard'
 
 const CartDrawer = () => {
-    const { isCartOpen, setIsCartOpen, cartItems, setCartItems } = useCartState()
+    const { isCartOpen, setIsCartOpen, itemsInCart, setItemsInCart } =
+        useCartState()
 
     const handleRemove = (cartItemToRemove: CartItem) => {
-        const newCartItems = cartItems.filter(
+        const newCartItems = itemsInCart.filter(
             (item) => item !== cartItemToRemove
         )
-        setCartItems(newCartItems)
+        setItemsInCart(newCartItems)
     }
 
-    const updateQuantity = (
-        itemToUpdate: CartItem,
-        newQuantity: number
-    ) => {
-        setCartItems(
-            cartItems.map((item) => {
+    const updateQuantity = (itemToUpdate: CartItem, newQuantity: number) => {
+        setItemsInCart(
+            itemsInCart.map((item) => {
                 if (item.title === itemToUpdate.title) {
                     if (newQuantity == 0) {
                         return { ...item, quantity: 1 }
@@ -54,7 +52,7 @@ const CartDrawer = () => {
                             <AiOutlineClose style={{ fontSize: '30px' }} />
                         </button>
                     </div>
-                    {cartItems.map((item) => (
+                    {itemsInCart.map((item) => (
                         <CartItemDisplayCard
                             key={item.title}
                             item={item}
